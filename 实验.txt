@@ -1,0 +1,19 @@
+因为人的嘴巴动的慢，所以在10-30ms内可以认为是一个稳定的信号，所以我们就以这段时间为一段，截取语音信号，并称为一帧。把每帧特征参数组成的特征参数序列就看作是原语音信号。
+语音信号分帧函数：audioread
+句式：
+  [y,Fs] = audioread(filename)
+  [y,Fs] = audioread(filename,samples)
+  [y,Fs] = audioread(___,dataType)
+描述：
+  [y,Fs] = audioread(filename)从名为的文件中读取数据filename，并返回采样数据y，以及该数据的采样率Fs。
+  [y,Fs] = audioread(filename,samples)读取文件中选定的音频样本范围，其中samples是形式的向量[start,finish]。
+  [y,Fs] = audioread(___,dataType)返回与dataTypeof 'native'或相对应的数据范围内的采样数据'double'，并且可以包括先前语法中的任何输入参数。
+  
+  example：
+  
+  load handel.mat
+  filename = 'handel.wav';
+  audiowrite(filename,y,Fs);
+  clear y Fs
+  
+  参考网址：https://ww2.mathworks.cn/help/matlab/ref/audioread.html?lang=en
